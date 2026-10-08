@@ -1,155 +1,150 @@
 /* =========================================================
-   STUDIO NORTH
-   SCRIPT.JS
+STUDIO NORTH
+SCRIPT.JS
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const header = document.getElementById("header");
-    const menuButton = document.getElementById("menuButton");
-    const nav = document.getElementById("nav");
+/* =====================================================
+   ELEMENTOS
+===================================================== */
 
-    /* =====================================================
-       HEADER AO ROLAR
-    ===================================================== */
+const header = document.getElementById("header");
+const menuButton = document.getElementById("menuButton");
+const nav = document.getElementById("nav");
 
-    function updateHeader() {
 
-        if (window.scrollY > 30) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
-        }
+/* =====================================================
+   HEADER AO ROLAR
+===================================================== */
 
+function updateHeader() {
+
+    if (!header) return;
+
+    if (window.scrollY > 30) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
     }
 
-    window.addEventListener("scroll", updateHeader);
+}
 
-    updateHeader();
+window.addEventListener(
+    "scroll",
+    updateHeader,
+    { passive: true }
+);
+
+updateHeader();
 
 
-    /* =====================================================
-       MENU MOBILE
-    ===================================================== */
+/* =====================================================
+   MENU MOBILE
+===================================================== */
 
-    function openMenu() {
+function openMenu() {
 
-        nav.classList.add("active");
-        menuButton.classList.add("active");
+    if (!nav || !menuButton) return;
 
-        menuButton.setAttribute(
-            "aria-expanded",
-            "true"
-        );
+    nav.classList.add("active");
 
-        document.body.classList.add("menu-open");
+    menuButton.classList.add("active");
 
+    menuButton.setAttribute(
+        "aria-expanded",
+        "true"
+    );
+
+    menuButton.setAttribute(
+        "aria-label",
+        "Fechar menu"
+    );
+
+    document.body.classList.add(
+        "menu-open"
+    );
+
+}
+
+
+function closeMenu() {
+
+    if (!nav || !menuButton) return;
+
+    nav.classList.remove("active");
+
+    menuButton.classList.remove("active");
+
+    menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    menuButton.setAttribute(
+        "aria-label",
+        "Abrir menu"
+    );
+
+    document.body.classList.remove(
+        "menu-open"
+    );
+
+}
+
+
+function toggleMenu() {
+
+    if (!nav) return;
+
+    if (nav.classList.contains("active")) {
+        closeMenu();
+    } else {
+        openMenu();
     }
 
-
-    function closeMenu() {
-
-        nav.classList.remove("active");
-        menuButton.classList.remove("active");
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        document.body.classList.remove("menu-open");
-
-    }
+}
 
 
-    function toggleMenu() {
+if (menuButton && nav) {
 
-        if (nav.classList.contains("active")) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
+    /* Abrir / fechar */
 
-    }
-
-
-    if (menuButton && nav) {
-
-        menuButton.addEventListener(
-            "click",
-            toggleMenu
-        );
+    menuButton.addEventListener(
+        "click",
+        toggleMenu
+    );
 
 
-        /* Fecha ao clicar nos links */
+    /* Fechar ao clicar em um link */
 
-        nav.querySelectorAll("a").forEach((link) => {
+    nav.querySelectorAll("a").forEach(
+        (link) => {
 
             link.addEventListener(
                 "click",
                 closeMenu
             );
 
-        });
+        }
+    );
 
 
-        /* Fecha clicando fora */
+    /* Fechar clicando fora */
 
-        document.addEventListener(
-            "click",
-            (event) => {
+    document.addEventListener(
+        "click",
+        (event) => {
 
-                const clickedMenu =
-                    nav.contains(event.target);
+            const clickedInsideNav =
+                nav.contains(event.target);
 
-                const clickedButton =
-                    menuButton.contains(event.target);
-
-                if (
-                    !clickedMenu &&
-                    !clickedButton &&
-                    nav.classList.contains("active")
-                ) {
-
-                    closeMenu();
-
-                }
-
-            }
-        );
-
-
-        /* ESC */
-
-        document.addEventListener(
-            "keydown",
-            (event) => {
-
-                if (
-                    event.key === "Escape" &&
-                    nav.classList.contains("active")
-                ) {
-
-                    closeMenu();
-
-                }
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       FECHAR MENU AO REDIMENSIONAR
-    ===================================================== */
-
-    window.addEventListener(
-        "resize",
-        () => {
+            const clickedMenuButton =
+                menuButton.contains(event.target);
 
             if (
-                window.innerWidth > 800 &&
+                !clickedInsideNav &&
+                !clickedMenuButton &&
                 nav.classList.contains("active")
             ) {
 
@@ -161,13 +156,57 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-    /* =====================================================
-       SCROLL SUAVE
-    ===================================================== */
+    /* Fechar com ESC */
 
-    document.querySelectorAll(
-        'a[href^="#"]'
-    ).forEach((link) => {
+    document.addEventListener(
+        "keydown",
+        (event) => {
+
+            if (
+                event.key === "Escape" &&
+                nav.classList.contains("active")
+            ) {
+
+                closeMenu();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   FECHAR MENU AO AUMENTAR A TELA
+===================================================== */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        if (
+            window.innerWidth > 800 &&
+            nav &&
+            nav.classList.contains("active")
+        ) {
+
+            closeMenu();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   SCROLL SUAVE
+===================================================== */
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(
+    (link) => {
 
         link.addEventListener(
             "click",
@@ -176,9 +215,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 const id =
                     link.getAttribute("href");
 
-                if (!id || id === "#") {
+                /* Ignora href="#" */
+
+                if (
+                    !id ||
+                    id === "#"
+                ) {
                     return;
                 }
+
 
                 const target =
                     document.querySelector(id);
@@ -187,15 +232,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
+
                 event.preventDefault();
 
+
                 const headerHeight =
-                    header.offsetHeight;
+                    header
+                        ? header.offsetHeight
+                        : 0;
+
 
                 const position =
                     target.getBoundingClientRect().top +
                     window.scrollY -
                     headerHeight;
+
 
                 window.scrollTo({
                     top: position,
@@ -205,21 +256,108 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         );
 
-    });
-
-
-    /* =====================================================
-       ANO AUTOMÁTICO
-    ===================================================== */
-
-    const copyright =
-        document.getElementById("copyright");
-
-    if (copyright) {
-
-        copyright.textContent =
-            `© ${new Date().getFullYear()} Studio North`;
-
     }
+);
+
+
+/* =====================================================
+   ANO AUTOMÁTICO DO FOOTER
+===================================================== */
+
+const copyright =
+    document.getElementById("copyright");
+
+if (copyright) {
+
+    copyright.textContent =
+        `© ${new Date().getFullYear()} Studio North`;
+
+}
+
+
+/* =====================================================
+   ANIMAÇÃO SIMPLES AO ENTRAR NA TELA
+===================================================== */
+
+const animatedElements =
+    document.querySelectorAll(
+        ".feature, .training-card"
+    );
+
+
+if (
+    "IntersectionObserver" in window &&
+    animatedElements.length > 0
+) {
+
+    const observer =
+        new IntersectionObserver(
+            (entries, observerInstance) => {
+
+                entries.forEach(
+                    (entry) => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.classList.add(
+                                "visible"
+                            );
+
+                            observerInstance.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    animatedElements.forEach(
+        (element) => {
+
+            observer.observe(element);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   PREVENÇÃO DE CLIQUE DUPLO NO MENU
+===================================================== */
+
+let lastMenuClick = 0;
+
+if (menuButton) {
+
+    menuButton.addEventListener(
+        "click",
+        () => {
+
+            const now =
+                Date.now();
+
+            if (
+                now - lastMenuClick < 250
+            ) {
+                return;
+            }
+
+            lastMenuClick = now;
+
+        }
+    );
+
+}
 
 });
