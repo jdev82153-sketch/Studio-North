@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
         content="Studio North — treinamento, performance e evolução."
     >
 
-    <title>Studio North | Treinamento & Performance</title>
+    <title>Studio North | Performance</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,11 +29,11 @@
 
 <body>
 
-    <!-- ================= HEADER ================= -->
+    <!-- HEADER -->
 
     <header class="header" id="header">
 
-        <div class="container header-content">
+        <div class="container header-inner">
 
             <a href="#inicio" class="logo">
                 <img
@@ -37,21 +42,28 @@
                 >
             </a>
 
-            <nav class="nav">
+            <nav class="nav" id="nav">
+
+                <a href="#inicio">Início</a>
                 <a href="#sobre">Sobre</a>
                 <a href="#treinos">Treinos</a>
                 <a href="#estrutura">Estrutura</a>
                 <a href="#contato">Contato</a>
+
             </nav>
 
-            <a href="#contato" class="header-button">
-                Começar agora
+            <a
+                href="#contato"
+                class="header-button"
+            >
+                COMEÇAR
             </a>
 
             <button
                 class="menu-button"
                 id="menuButton"
                 aria-label="Abrir menu"
+                aria-expanded="false"
             >
                 <span></span>
                 <span></span>
@@ -63,56 +75,65 @@
     </header>
 
 
-    <!-- ================= HERO ================= -->
-
     <main>
+
+        <!-- HERO -->
 
         <section class="hero" id="inicio">
 
-            <div class="hero-background"></div>
+            <div class="hero-overlay"></div>
+
+            <div class="hero-lines"></div>
 
             <div class="container hero-content">
 
-                <div class="hero-text">
+                <div class="hero-copy">
 
-                    <span class="eyebrow">
+                    <div class="eyebrow">
+                        <span></span>
                         STUDIO NORTH
-                    </span>
+                    </div>
 
                     <h1>
-                        Seu próximo nível
-                        <span>começa aqui.</span>
+                        TREINE.
+                        <strong>EVOLUA.</strong>
+                        SUPERE.
                     </h1>
 
                     <p>
-                        Treinamento inteligente, ambiente de alto nível
-                        e acompanhamento para você evoluir de verdade.
+                        Um novo nível de treinamento para quem
+                        decidiu levar sua evolução a sério.
                     </p>
 
-                    <div class="hero-buttons">
+                    <div class="hero-actions">
 
                         <a
                             href="#contato"
-                            class="button button-primary"
+                            class="button button-yellow"
                         >
-                            Quero começar
+                            COMEÇAR AGORA
                             <span>↗</span>
                         </a>
 
                         <a
                             href="#sobre"
-                            class="button button-secondary"
+                            class="button button-outline"
                         >
-                            Conheça o Studio
+                            CONHECER
                         </a>
 
                     </div>
 
                 </div>
 
-                <div class="hero-scroll">
-                    <span></span>
-                    Role para explorar
+                <div class="hero-bottom">
+
+                    <span>01</span>
+
+                    <div></div>
+
+                    <span>PERFORMANCE</span>
+
                 </div>
 
             </div>
@@ -120,37 +141,50 @@
         </section>
 
 
-        <!-- ================= SOBRE ================= -->
+        <!-- SOBRE -->
 
-        <section class="intro" id="sobre">
+        <section class="about" id="sobre">
 
-            <div class="container intro-grid">
+            <div class="container">
 
-                <div class="section-label">
-                    <span>01</span>
-                    SOBRE O STUDIO
+                <div class="section-top">
+
+                    <span class="section-number">
+                        01
+                    </span>
+
+                    <span class="section-label">
+                        SOBRE A NORTH
+                    </span>
+
                 </div>
 
-                <div class="intro-content">
+                <div class="about-grid">
 
                     <h2>
-                        Mais que um treino.
-                        <strong>Uma nova rotina.</strong>
+                        NÃO É SÓ
+                        <span>ACADEMIA.</span>
                     </h2>
 
-                    <p>
-                        Na Studio North, cada treino é pensado para
-                        ajudar você a alcançar seus objetivos com
-                        estratégia, consistência e acompanhamento.
-                    </p>
+                    <div class="about-text">
 
-                    <a
-                        href="#contato"
-                        class="text-link"
-                    >
-                        Conheça nossa proposta
-                        <span>→</span>
-                    </a>
+                        <p>
+                            A Studio North nasceu para quem busca
+                            mais do que simplesmente treinar.
+                        </p>
+
+                        <p>
+                            Aqui, cada detalhe foi pensado para
+                            criar uma experiência de treino focada
+                            em consistência, performance e evolução.
+                        </p>
+
+                        <a href="#contato" class="text-link">
+                            Conheça a Studio North
+                            <span>→</span>
+                        </a>
+
+                    </div>
 
                 </div>
 
@@ -159,36 +193,40 @@
         </section>
 
 
-        <!-- ================= DIFERENCIAIS ================= -->
+        <!-- DIFERENCIAIS -->
 
         <section class="features" id="estrutura">
 
             <div class="container">
 
-                <div class="section-heading">
+                <div class="section-top">
 
-                    <div class="section-label">
-                        <span>02</span>
-                        POR QUE NORTH
-                    </div>
+                    <span class="section-number">
+                        02
+                    </span>
+
+                    <span class="section-label">
+                        NOSSO DIFERENCIAL
+                    </span>
+
+                </div>
+
+                <div class="features-title">
 
                     <h2>
-                        Treine com propósito.
+                        TREINE COM
+                        <span>PROPÓSITO.</span>
                     </h2>
 
                 </div>
 
-
                 <div class="features-grid">
 
-                    <article class="feature-card">
+                    <article class="feature">
 
-                        <span class="feature-number">
-                            01
-                        </span>
-
-                        <div class="feature-icon">
-                            ↗
+                        <div class="feature-top">
+                            <span>01</span>
+                            <strong>↗</strong>
                         </div>
 
                         <h3>
@@ -196,21 +234,18 @@
                         </h3>
 
                         <p>
-                            Orientação para tornar seus treinos
-                            mais eficientes e consistentes.
+                            Orientação para tornar cada treino
+                            mais eficiente e consistente.
                         </p>
 
                     </article>
 
 
-                    <article class="feature-card">
+                    <article class="feature">
 
-                        <span class="feature-number">
-                            02
-                        </span>
-
-                        <div class="feature-icon">
-                            +
+                        <div class="feature-top">
+                            <span>02</span>
+                            <strong>+</strong>
                         </div>
 
                         <h3>
@@ -218,21 +253,18 @@
                         </h3>
 
                         <p>
-                            Um ambiente pensado para proporcionar
-                            uma experiência completa de treino.
+                            Um ambiente preparado para você
+                            focar totalmente na sua evolução.
                         </p>
 
                     </article>
 
 
-                    <article class="feature-card">
+                    <article class="feature">
 
-                        <span class="feature-number">
-                            03
-                        </span>
-
-                        <div class="feature-icon">
-                            ◎
+                        <div class="feature-top">
+                            <span>03</span>
+                            <strong>◎</strong>
                         </div>
 
                         <h3>
@@ -240,8 +272,8 @@
                         </h3>
 
                         <p>
-                            Estratégias para quem busca evolução,
-                            condicionamento e qualidade de vida.
+                            Treinamentos pensados para quem
+                            quer superar seus próprios limites.
                         </p>
 
                     </article>
@@ -253,21 +285,29 @@
         </section>
 
 
-        <!-- ================= TREINOS ================= -->
+        <!-- TREINOS -->
 
         <section class="training" id="treinos">
 
             <div class="container">
 
-                <div class="section-heading training-heading">
+                <div class="section-top">
 
-                    <div class="section-label">
-                        <span>03</span>
+                    <span class="section-number">
+                        03
+                    </span>
+
+                    <span class="section-label">
                         EXPERIÊNCIA
-                    </div>
+                    </span>
+
+                </div>
+
+                <div class="training-heading">
 
                     <h2>
-                        Treine do seu jeito.
+                        ENCONTRE SEU
+                        <span>RITMO.</span>
                     </h2>
 
                     <p>
@@ -282,15 +322,19 @@
 
                     <article class="training-card">
 
-                        <div class="training-image image-one"></div>
+                        <div class="training-bg bg-one"></div>
 
-                        <div class="training-overlay">
+                        <div class="training-info">
 
                             <span>01</span>
 
                             <h3>
-                                Musculação
+                                MUSCULAÇÃO
                             </h3>
+
+                            <p>
+                                Força e evolução.
+                            </p>
 
                         </div>
 
@@ -299,15 +343,19 @@
 
                     <article class="training-card">
 
-                        <div class="training-image image-two"></div>
+                        <div class="training-bg bg-two"></div>
 
-                        <div class="training-overlay">
+                        <div class="training-info">
 
                             <span>02</span>
 
                             <h3>
-                                Funcional
+                                FUNCIONAL
                             </h3>
+
+                            <p>
+                                Movimento e condicionamento.
+                            </p>
 
                         </div>
 
@@ -316,15 +364,19 @@
 
                     <article class="training-card">
 
-                        <div class="training-image image-three"></div>
+                        <div class="training-bg bg-three"></div>
 
-                        <div class="training-overlay">
+                        <div class="training-info">
 
                             <span>03</span>
 
                             <h3>
-                                Personal
+                                PERSONAL
                             </h3>
+
+                            <p>
+                                Treino individualizado.
+                            </p>
 
                         </div>
 
@@ -337,33 +389,34 @@
         </section>
 
 
-        <!-- ================= CTA ================= -->
+        <!-- CTA -->
 
         <section class="cta" id="contato">
 
             <div class="container">
 
-                <div class="cta-content">
+                <div class="cta-box">
 
-                    <span class="eyebrow">
+                    <div class="eyebrow">
+                        <span></span>
                         STUDIO NORTH
-                    </span>
+                    </div>
 
                     <h2>
-                        Pronto para começar
-                        <span>sua evolução?</span>
+                        PRONTO PARA
+                        <span>EVOLUIR?</span>
                     </h2>
 
                     <p>
-                        Entre em contato com a Studio North
-                        e descubra a melhor forma de começar.
+                        Dê o primeiro passo para uma nova
+                        experiência de treinamento.
                     </p>
 
                     <a
                         href="#"
-                        class="button button-primary"
+                        class="button button-yellow"
                     >
-                        Falar com a Studio North
+                        FALAR COM A NORTH
                         <span>↗</span>
                     </a>
 
@@ -376,11 +429,11 @@
     </main>
 
 
-    <!-- ================= FOOTER ================= -->
+    <!-- FOOTER -->
 
     <footer class="footer">
 
-        <div class="container footer-content">
+        <div class="container footer-inner">
 
             <div class="footer-brand">
 
@@ -390,11 +443,10 @@
                 >
 
                 <p>
-                    Treinamento. Performance. Evolução.
+                    TREINAMENTO · PERFORMANCE · EVOLUÇÃO
                 </p>
 
             </div>
-
 
             <div class="footer-links">
 
@@ -407,15 +459,14 @@
 
         </div>
 
-
         <div class="container footer-bottom">
 
-            <span>
-                © 2026 Studio North. Todos os direitos reservados.
+            <span id="copyright">
+                © 2026 Studio North
             </span>
 
             <span>
-                Desenvolvido com propósito.
+                TODOS OS DIREITOS RESERVADOS
             </span>
 
         </div>
@@ -426,4 +477,5 @@
     <script src="script.js"></script>
 
 </body>
-  </html>
+
+</html>
